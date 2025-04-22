@@ -1,0 +1,61 @@
+# Unity项目通用.gitignore文件
+
+# Unity生成的文件和文件夹
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# MemoryCaptures可以获取和跟踪Unity的性能数据
+[Mm]emoryCaptures/
+
+# 资源导入处理器的临时文件
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D生成的meta文件
+*.pidb
+*.pdb
+*.mdb
+
+# Unity3D生成的崩溃报告文件
+sysinfo.txt
+
+# 构建产物
+*.apk
+*.aab
+*.unitypackage
+*.app
+
+# Crashlytics生成的文件
+crashlytics-build.properties
+
+# Visual Studio生成的文件
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.booproj
+*.svd
+
+# JetBrains Rider IDE生成的文件
+.idea/
+Assets/Plugins/Editor/JetBrains*
+
+# macOS系统文件
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db 
