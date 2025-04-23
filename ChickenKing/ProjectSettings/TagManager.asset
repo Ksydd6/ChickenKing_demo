@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Player
+  - "\u76EE\u6807"
   - Water
   - UI
   - Obstacle
