@@ -5,17 +5,19 @@ using System.Collections;
 
 public class ChangeImage : MonoBehaviour
 {
-    //¼¦¼ÆÊı°åÍ¼Æ¬
+    //é¸¡è®¡æ•°æ¿å›¾ç‰‡
     [SerializeField]
     private Sprite[] chickenSprites;
     [SerializeField]
     private Image Image;
     [SerializeField]
     private TMP_Text chickenNumberText;
-   //¶¯»­×é¼ş
-    private Animator animator;
 
-    //²âÊÔÓÃÊıÖµ
+    //åŠ¨ç”»ç»„ä»¶
+    private Animator animator;
+    private bool[] havePlayed;
+
+    //æµ‹è¯•ç”¨æ•°å€¼
     private int chickenNumber;
 
     private void Awake()
@@ -23,14 +25,15 @@ public class ChangeImage : MonoBehaviour
         animator = GetComponent<Animator>();
         if(animator == null)
         {
-            Debug.Log("Ã»ÓĞ¶¯»­×é¼ş");
+            Debug.Log("æ²¡æœ‰åŠ¨ç”»ç»„ä»¶");
         }
+        havePlayed = new bool[2] { false,false };
 
-        //²âÊÔÓÃ
+        //æµ‹è¯•ç”¨
         chickenNumber = 15;
     }
 
-    //²âÊÔÓÃ¼ÆÊı
+    //æµ‹è¯•ç”¨è®¡æ•°
     private void Start()
     {
         StartCoroutine(Decrease());
@@ -44,39 +47,24 @@ public class ChangeImage : MonoBehaviour
         }
     }
 
-    //¶¯»­Æô¶¯
-    IEnumerator ChangingAnimation()
-    {
-        Debug.Log("¿ªÊ¼¶¯»­");
-
-        // ÏÈÉèÖÃÎªtrue´¥·¢¶¯»­
-        animator.SetBool("isChanging", true);
-
-        // µÈ´ı
-        yield return new WaitForSeconds(0.2f);
-
-        // È»ºóÉèÖÃÎªfalse½áÊø¶¯»­
-        animator.SetBool("isChanging", false);
-
-        Debug.Log("½áÊø¶¯»­");
-    }
-
 
     private void LateUpdate()
     {
-        //ĞŞ¸ÄÏÔÊ¾Í¼Æ¬
-        if (chickenNumber == 10)
+        //ä¿®æ”¹æ˜¾ç¤ºå›¾ç‰‡
+        if (chickenNumber == 10 & !havePlayed[0])
         {
             Image.sprite = chickenSprites[1];
-            StartCoroutine(ChangingAnimation());
+            animator.Play("chickenShake");
+            havePlayed[0] = true;
         }
-        else if (chickenNumber == 5)
+        else if (chickenNumber == 5 & !havePlayed[1])
         {
             Image.sprite = chickenSprites[2];
-            StartCoroutine(ChangingAnimation());
+            animator.Play("chickenShake");
+            havePlayed[1] = true;
         }
 
-        //ĞŞ¸ÄÊı×Ö
+        //ä¿®æ”¹æ•°å­—
         chickenNumberText.text = chickenNumber.ToString();
     }
 
