@@ -5,27 +5,29 @@ using System.Collections;
 
 public class ChangeImage : MonoBehaviour
 {
-    [SerializeField]
     //鸡计数板图片
-    public Sprite[] chickenSprites;
-    public Image Image;
-    public TMP_Text chickenNumberText;
-    
-    //测试用数值
-    private int chickenNumber;
-    private bool isChanging = false;
+    [SerializeField]
+    private Sprite[] chickenSprites;
+    [SerializeField]
+    private Image Image;
+    [SerializeField]
+    private TMP_Text chickenNumberText;
+   //动画组件
     private Animator animator;
 
-    //测试用函数
+    //测试用数值
+    private int chickenNumber;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        chickenNumber = 15;
-
         if(animator == null)
         {
             Debug.Log("没有动画组件");
         }
+
+        //测试用
+        chickenNumber = 15;
     }
 
     //测试用计数
