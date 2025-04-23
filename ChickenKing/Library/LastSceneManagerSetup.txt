@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/SampleScene.unity
+- path: "Assets/Scenes/ai\u5DE1\u903B\u6D4B\u8BD5\u573A\u666F.unity"
   isLoaded: 1
   isActive: 1
   isSubScene: 0
